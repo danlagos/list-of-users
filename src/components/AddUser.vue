@@ -1,10 +1,11 @@
 <template>
   <div>
-    <form @submit.prevent="submitHandler">
-      <label for="username">Username</label>
-      <input id="username" type="text" />
+    <form @submit.prevent="onSubmit">
+      <label for="name">name</label>
+      <input v-model="name" id="name" type="text" />
       <label for="age">Age</label>
-      <input id="age" type="number" />
+      <input v-model.number="age" id="age" type="number" />
+      <button type="submit" value="Submit">Add User</button>
     </form>
   </div>
 </template>
@@ -12,6 +13,23 @@
 <script>
 export default {
   name: "AddUser",
+  data() {
+    return {
+      name: " ",
+      age: " ",
+    };
+  },
+  methods: {
+    onSubmit() {
+      let userPayload = {
+        name: this.name,
+        age: this.age,
+      };
+      this.$emit("user-info", userPayload);
+      this.name = "";
+      this.age = "";
+    },
+  },
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AddUser />
+    <AddUser @user-info="addUserInfo" />
   </div>
 </template>
 
@@ -12,6 +12,17 @@ export default {
   name: "Users",
   components: {
     AddUser,
+  },
+  data() {
+    return {
+      userData: [],
+    };
+  },
+  methods: {
+    addUserInfo(userPayload) {
+      this.userData.push(userPayload);
+      console.log(`user: ${this.userData}`);
+    },
   },
 };
 </script>
