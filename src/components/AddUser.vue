@@ -15,8 +15,9 @@ export default {
   name: "AddUser",
   data() {
     return {
-      name: " ",
-      age: " ",
+      name: "",
+      age: "",
+      key: null,
     };
   },
   methods: {
@@ -24,10 +25,12 @@ export default {
       let userPayload = {
         name: this.name,
         age: this.age,
+        key: Math.random() * (100 - 1) + 100,
       };
       this.$emit("user-info", userPayload);
       this.name = "";
       this.age = "";
+      this.key = null;
     },
   },
 };
