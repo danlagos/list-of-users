@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "AddUser",
+  name: "AddUserForm",
   data() {
     return {
       name: "",
